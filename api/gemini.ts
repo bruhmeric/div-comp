@@ -1,5 +1,5 @@
 import type { VercelRequest, VercelResponse } from '@vercel/node';
-import { GoogleGenAI, Type, Chat, Content } from '@google/genai';
+import { GoogleGenAI, Type, Content } from '@google/genai';
 import type { ComparisonResponse, ChatMessage } from '../types';
 
 if (!process.env.API_KEY) {
