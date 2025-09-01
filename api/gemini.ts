@@ -113,8 +113,9 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         } else {
             return res.status(400).json({ error: 'Invalid action specified.' });
         }
-    } catch (error) {
+    } catch (error: any) {
         console.error('API Error:', error);
-        return res.status(500).json({ error: 'An error occurred with the AI service.' });
+        const errorMessage = error.message || 'An unknown error occurred with the AI service.';
+        return res.status(500).json({ error: `Server Error: ${errorMessage}` });
     }
 }

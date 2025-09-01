@@ -36,9 +36,9 @@ const App: React.FC = () => {
     try {
       const result = await generateComparison(device1, device2);
       setComparison(result);
-    } catch (err) {
+    } catch (err: any) {
       console.error(err);
-      setError('Failed to fetch comparison. The model may be unavailable. Please try again later.');
+      setError(err.message || 'Failed to fetch comparison. The model may be unavailable. Please try again later.');
     } finally {
       setIsLoading(false);
     }
@@ -60,8 +60,8 @@ const App: React.FC = () => {
         const responseText = await sendFollowUpMessage(comparison, newChatHistory);
         const modelMessage: ChatMessage = { role: 'model', content: responseText };
         setChatHistory(prev => [...prev, modelMessage]);
-    } catch (err) {
-        setError('Sorry, I couldn\'t answer that. Please try again.');
+    } catch (err: any) {
+        setError(err.message || 'Sorry, I couldn\'t answer that. Please try again.');
         // remove the user's message on failure to allow them to re-send
         setChatHistory(prev => prev.slice(0, -1));
     } finally {

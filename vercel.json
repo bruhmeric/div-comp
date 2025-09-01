@@ -14,8 +14,8 @@
   ],
   "rewrites": [
     {
-      "source": "/api/(.*)",
-      "destination": "/api/gemini"
+      "source": "/api/gemini",
+      "destination": "/api/gemini.ts"
     },
     {
       "source": "/(.*)",
