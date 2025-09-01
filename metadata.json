@@ -1,0 +1,5 @@
+{
+  "name": "Device Comparator AI",
+  "description": "An AI-powered application that provides detailed, side-by-side visual comparisons of phones and other electronic devices, helping you make informed decisions.",
+  "requestFramePermissions": []
+}
